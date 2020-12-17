@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+.gnb {
+  @include clear;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $header-height;
+  padding: 0 8px;
+  background-color: #fff;
+
+  @include mq-min-657 {
+    padding: 0 16px;
+  }
+
+  .left_section {
+    @include removeMargin;
+
+    float: left;
+    height: 100%;
+
+    &:after {
+      @include createPseudo(inline-block);
+
+      width: 0;
+      height: 100%;
+    }
+  }
+  .button_lnb {
+    margin-right: 4px;
+    padding: 8px;
+    vertical-align: middle;
+
+    .icon_menu {
+      width: 24px;
+      height: 24px;
+      fill: $grey-color;
+    }
+  }
+  .logo {
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+
+    .link {
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
+    }
+    .icon_youtube {
+      width: 80px;
+      height: 100%;
+    }
+    .unit_nation {
+      display: inline-block;
+      height: 100%;
+      margin-left: 2px;
+      font-size: 10px;
+      line-height: 14px;
+      font-weight: normal;
+      color: $grey-color;
+      vertical-align: top;
+    }
+  }
+  .right_section {
+    @include removeMargin;
+
+    float: right;
+    height: 100%;
+
+    &:after {
+      @include createPseudo(inline-block);
+
+      width: 0;
+      height: 100%;
+    }
+    .svg_style {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .icon_search,
+  .icon_upload,
+  .icon_app,
+  .icon_notification {
+    display: block;
+    fill: $grey-color;
+  }
+  .input_wrap,
+  .dropdown_make,
+  .dropdown_app,
+  .dropdown_notification,
+  .dropdown_account {
+    display: none;
+  }
+  .button_search,
+  .button_make,
+  .button_app,
+  .button_notification {
+    padding: 8px;
+    vertical-align: middle;
+  }
+  .search_area {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .upload_area {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .app_area {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .notification_area {
+    display: none;
+    vertical-align: middle;
+
+    @include mq-min-429 {
+      display: inline-block;
+    }
+  }
+  .account_area {
+    display: inline-block;
+    margin: 1px 14px;
+    vertical-align: middle;
+  }
+  .button_account {
+    overflow: hidden;
+    border-radius: 50%;
+  }
+}

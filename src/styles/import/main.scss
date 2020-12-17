@@ -1,5 +1,52 @@
 @charset "UTF-8";
 
-body {
-  color: $key-color;
+.container {
+  padding-top: $header-height;
+
+  @include mq-min-809 {
+    padding: $header-height 0 0 72px;
+  }
+}
+.mini_lnb {
+  display: none;
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+  left: 0;
+  width: 72px;
+  padding: 4px 0;
+  background-color: #fff;
+
+  @include mq-min-809 {
+    display: block;
+  }
+  .link {
+    display: block;
+    padding: 16px 0 14px;
+
+    &.on {
+      .svg_style {
+        fill: $key-color;
+      }
+      .text {
+        color: #c00;
+      }
+    }
+  }
+  .svg_style {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+    fill: $grey-color;
+  }
+  .text {
+    display: block;
+    margin-top: 6px;
+    color: $grey-color;
+    text-align: center;
+  }
+}
+.content {
+  background-color: #f9f9f9;
 }

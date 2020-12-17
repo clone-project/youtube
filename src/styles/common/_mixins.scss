@@ -1,2 +1,77 @@
 @charset "UTF-8";
 /* _mixins.scss */
+
+// float 해제
+@mixin clear {
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
+//여백 제거
+@mixin removeMargin {
+  font-size: 0;
+  line-height: 0;
+}
+
+// 가상요소 생성
+@mixin createPseudo($display: block, $align: middle) {
+  display: $display;
+  content: '';
+
+  @if $display == inline-block {
+    vertical-align: $align;
+  }
+}
+
+//한줄 말줄임
+@mixin ellipsis($display, $maxWidth: null) {
+  display: $display;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+
+  @if $display == inline-block {
+    max-width: $maxWidth;
+  }
+}
+
+//여러줄 말줄임
+@mixin ellipsisMulti($display, $lines) {
+  overflow: hidden;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+
+  @if $display == null {
+    display: block;
+  } @else {
+    display: $display;
+
+    @if $display != none {
+      display: -webkit-box;
+    }
+  }
+}
+
+
+@mixin mq-min-429 {
+  @media all and (min-width: 429px) {
+    @content;
+  }
+}
+@mixin mq-min-657 {
+  @media all and (min-width: 657px) {
+    @content;
+  }
+}
+@mixin mq-min-809 {
+  @media all and (min-width: 809px) {
+    @content;
+  }
+}
