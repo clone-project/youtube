@@ -44,7 +44,7 @@
   "bugs": {
     "url": "https://github.com/clone-project/youtube/issues"
   },
-  "homepage": "https://sssoingkim.github.io/clone-project/youtube",
+  "homepage": "https://clone-project.github.io/youtube",
   "dependencies": {
     "gh-pages": "^3.1.0"
   }
