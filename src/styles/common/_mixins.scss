@@ -75,3 +75,13 @@
     @content;
   }
 }
+@mixin mq-min-876 {
+  @media all and (min-width: 876px) {
+    @content;
+  }
+}
+@mixin mq-min-1330 {
+  @media all and (min-width: 1330px) {
+    @content;
+  }
+}

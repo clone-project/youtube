@@ -28,42 +28,6 @@
       height: 100%;
     }
   }
-  .button_lnb {
-    margin-right: 4px;
-    padding: 8px;
-    vertical-align: middle;
-
-    .icon_menu {
-      width: 24px;
-      height: 24px;
-      fill: $grey-color;
-    }
-  }
-  .logo {
-    display: inline-block;
-    height: 24px;
-    vertical-align: middle;
-
-    .link {
-      display: inline-block;
-      height: 100%;
-      vertical-align: top;
-    }
-    .icon_youtube {
-      width: 80px;
-      height: 100%;
-    }
-    .unit_nation {
-      display: inline-block;
-      height: 100%;
-      margin-left: 2px;
-      font-size: 10px;
-      line-height: 14px;
-      font-weight: normal;
-      color: $grey-color;
-      vertical-align: top;
-    }
-  }
   .right_section {
     @include removeMargin;
 
@@ -88,12 +52,58 @@
     display: block;
     fill: $grey-color;
   }
-  .input_wrap,
   .dropdown_make,
   .dropdown_app,
   .dropdown_notification,
   .dropdown_account {
     display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 240px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-width: 0 1px 1px 1px;
+    background-color: rgba(255, 255, 255, 0.98);
+
+    .dropdown_section {
+      padding: 8px 0;
+
+      & + .dropdown_section {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+    .link_item {
+      display: flex;
+      width: 100%;
+      height: 40px;
+      padding: 0 16px;
+      text-align: left;
+      white-space: nowrap;
+      flex-direction: row;
+      align-items: center;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      .svg_style {
+        flex: 0 0 auto;
+        display: inline-block;
+        margin-right: 16px;
+        vertical-align: top;
+      }
+    }
+    .text {
+      flex: 1;
+      font-size: 14px;
+      line-height: 21px;
+      color: #030303;
+    }
+    .icon_arrow {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      fill: #909090;
+    }
   }
   .button_search,
   .button_make,
@@ -106,23 +116,264 @@
     display: inline-block;
     vertical-align: middle;
   }
+  .button_search {
+    @include mq-min-657 {
+      display: none;
+    }
+  }
+  .input_wrap {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    padding: 0 12px 0 8px;
+    background-color: #fff;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mq-min-657 {
+      display: flex;
+      right: 241px;
+      left: 166px;
+      padding: 0 4px;
+      background-color: transparent;
+      justify-content: center;
+    }
+    @include mq-min-876 {
+      left: 201px;
+    }
+
+    &.open {
+      display: flex;
+    }
+    .button_back {
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-20px);
+      padding: 8px;
+
+      @include mq-min-657 {
+        display: none;
+      }
+    }
+    .icon_back {
+      display: inline-block;
+      vertical-align: top;
+      fill: $grey-color;
+    }
+    .form_input {
+      position: relative;
+      display: flex;
+      width: 100%;
+      padding-left: 52px;
+      box-sizing: border-box;
+
+      @include mq-min-657 {
+        flex: 0 1 728px;
+        width: auto;
+        max-width: 100%;
+        padding: 0 40px;
+      }
+    }
+    .input_search {
+      flex: 1;
+      min-width: 0;
+      height: 30px;
+      padding: 2px 6px;
+      border: 1px solid #ccc;
+      border-radius: 2px 0 0 2px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #111;
+      vertical-align: middle;
+      outline: none;
+      box-shadow: inset 0 1px 2px #eee;
+
+      &:focus {
+        border-color: #1c62b9;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+
+        ~ .keyword_wrap {
+          display: block;
+        }
+      }
+    }
+    .button_submit {
+      flex: 0 0 auto;
+      width: 65px;
+      height: 30px;
+      padding: 4px 0;
+      border: 1px solid #d3d3d3;
+      border-width: 1px 1px 1px 0;
+      border-radius: 0 2px 2px 0;
+      background-color: #f8f8f8;
+      vertical-align: middle;
+
+      &:hover {
+        background-color: #f0f0f0;
+        border-color: #c6c6c6;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+        .icon_submit_search {
+          opacity: 1;
+        }
+      }
+    }
+    .icon_submit_search {
+      width: 20px;
+      height: 20px;
+      fill: #333;
+      opacity: 0.6;
+    }
+  }
+  .keyword_wrap {
+    display: none;
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    left: 52px;
+    min-width: 182px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-width: 0 1px 1px 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    @include mq-min-657 {
+      right: 65px + 40px;
+      left: 40px;
+    }
+
+    .list_item {
+      height: 22px;
+      padding: 4px 27px 4px 10px;
+
+      &:hover {
+        background-color: #eee;
+      }
+      &.is_deleted {
+        .item_inner {
+          display: none;
+        }
+        .deleted_keyword {
+          display: block;
+        }
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+    .item_inner {
+      display: flex;
+      align-items: center;
+    }
+    .link_keyword {
+      flex: 1;
+      margin-right: 8px;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: bold;
+      color: #52188c;
+    }
+    .button_delete {
+      font-size: 13px;
+      line-height: 22px;
+      color: #36c;
+    }
+    .deleted_keyword {
+      display: none;
+      font-size: 16px;
+      line-height: 22px;
+      color: #666;
+    }
+  }
   .upload_area {
+    position: relative;
     display: inline-block;
     vertical-align: middle;
   }
+  .dropdown_make {
+    padding: 8px 0;
+  }
   .app_area {
+    position: relative;
     display: inline-block;
     vertical-align: middle;
   }
   .notification_area {
     display: none;
+    position: relative;
     vertical-align: middle;
 
     @include mq-min-429 {
       display: inline-block;
     }
   }
+  .dropdown_notification {
+    width: 478px;
+
+    .title_wrap {
+      position: relative;
+      display: flex;
+      height: 48px;
+      padding: 0 48px 0 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      align-items: center;
+    }
+    .title {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: normal;
+      color: #030303;
+    }
+    .link_setting {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      transform: translateY(-20px);
+      padding: 8px;
+    }
+    .icon_setting {
+      fill: #909090;
+    }
+    .content_wrap {
+      color: #606060;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .default {
+      display: flex;
+      max-width: 280px;
+      min-height: 574px;
+      margin: 0 auto;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .icon_notification_default {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      fill: #ccc;
+    }
+    .main_description {
+      margin-top: 24px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+    .sub_description {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
   .account_area {
+    position: relative;
     display: inline-block;
     margin: 1px 14px;
     vertical-align: middle;
@@ -130,5 +381,88 @@
   .button_account {
     overflow: hidden;
     border-radius: 50%;
+  }
+  .dropdown_account {
+    width: 298px;
+
+    .profile_section {
+      padding: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .image_area {
+      overflow: hidden;
+      float: left;
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
+      border-radius: 50%;
+    }
+    .text_area {
+      overflow: hidden;
+      color: #030303;
+    }
+    .nickname {
+      display: block;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+    .address {
+      display: block;
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .link_account {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 21px;
+      color: #065fd4;
+    }
+    .svg_style {
+      fill: #909090;
+    }
+  }
+}
+.button_lnb {
+  margin-right: 4px;
+  padding: 8px;
+  vertical-align: middle;
+
+  @include mq-min-657 {
+    margin-right: 16px;
+  }
+
+  .icon_menu {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: top;
+    fill: $grey-color;
+  }
+}
+.logo {
+  display: inline-block;
+  height: 24px;
+  vertical-align: middle;
+
+  .link {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+  }
+  .icon_youtube {
+    width: 80px;
+    height: 100%;
+  }
+  .unit_nation {
+    display: inline-block;
+    height: 100%;
+    margin-left: 2px;
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: normal;
+    color: $grey-color;
+    vertical-align: top;
   }
 }
