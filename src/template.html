@@ -155,7 +155,7 @@
         <div class="account_area">
           <!--[D] 클릭 시 .dropdown_account에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
           <button type="button" class="button_account">
-            <img src="//lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg" class="image_profile" width="24" height="24" alt="프로필">
+            <img id="user-profile" src="//lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg" class="image_profile" width="24" height="24" alt="프로필">
           </button>
           <div class="dropdown_account">
             <div class="profile_section">
@@ -163,8 +163,8 @@
                 <img src="//lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg" class="image_profile" width="40" height="40" alt="프로필">
               </div>
               <div class="text_area">
-                <span class="nickname">김송이</span>
-                <span class="address">11ksong2@gmail.com</span>
+                <span id="user-nickname" class="nickname"></span>
+                <span id="user-id" class="address"></span>
                 <a href="https://myaccount.google.com/u/0/?utm_source=YouTubeWeb&tab=rk&utm_medium=act&tab=rk&hl=ko" class="link_account">Google 계정 관리</a>
               </div>
             </div>
@@ -516,12 +516,12 @@
               <li class="list_item">
                 <div class="video_area">
                   <a href="#" class="link_video">
-                    <img src="https://i.ytimg.com/vi/WbUVK6mgaFk/hq720_live.jpg?sqp=CJDTp_8F-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBYHFFcvnPQK9yHYmrvNfNb0XuNTQ" class="thumbnail" width="36" height="36" alt="">
+                    <img id="thumbnail-video" src="https://i.ytimg.com/vi/WbUVK6mgaFk/hq720_live.jpg?sqp=CJDTp_8F-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBYHFFcvnPQK9yHYmrvNfNb0XuNTQ" class="thumbnail" width="36" height="36" alt="">
                     <!--[D] 스트리밍일 경우 .time 미노출 -->
-                    <span class="time">2:35</span>
+                    <span id="remained-time" class="time">2:35</span>
                     <div class="progress_bar">
                       <!--[D] 재생된 퍼센티지를 inline-style로 추가.-->
-                      <div class="played_bar" style="width: 50%"></div>
+                      <div id="played-bar" class="played_bar" style="width: 50%"></div>
                     </div>
                   </a>
                   <div class="button_wrap">
@@ -545,11 +545,11 @@
                     <img src="https://yt3.ggpht.com/a-/AOh14GiBs36NV9XAZnzVv-l32UW9wriHuhVb4YRmaQ=s68-c-k-c0x00ffffff-no-rj-mo" class="image_channel" width="36" height="36" alt="">
                   </a>
                   <div class="text_wrap">
-                    <a href="#" class="link_title">[연말 특집🎄] '크라임씬' 시즌1~3 고화질 라이브 스트리밍!! Crime Scene</a>
-                    <a href="#" class="link_channel">
-                      <span class="channel">JTBC Entertainment</span>
+                    <a href="#" id="title-video" class="link_title">[연말 특집🎄] '크라임씬' 시즌1~3 고화질 라이브 스트리밍!! Crime Scene</a>
+                    <a href="#" id="link-channel" class="link_channel">
+                      <span id="name-channel" class="channel">JTBC Entertainment</span>
                       <!--[D] 인증된 채널에만 .icon_authroized 추가 -->
-                      <span class="icon_authorized">
+                      <span id="authorized-channel" class="icon_authorized">
                         <span class="blind">인증됨</span>
                         <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10 S17.52,2,12,2z M9.92,17.93l-4.95-4.95l2.05-2.05l2.9,2.9l7.35-7.35l2.05,2.05L9.92,17.93z"></path></g></svg>
                       </span>
