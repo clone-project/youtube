@@ -1,6 +1,6 @@
 import './styles/youtube.scss'
 
-var requestUser = '../mock/user.json';
+import requestUser from '../mock/user.json';
 //var requestRecommendVideo = '../mock/recommendVideo.json';
 //var requestPopularVideo = '../mock/popularVideo.json';
 
@@ -10,12 +10,46 @@ request.responseType = 'json';
 request.send();
 
 request.onload = function() {
-  var userInfo = request.response;
-  //var users = JSON.parse(userInfo);
-  getUserInformation(users);
+  console.log(requestUser);
+  checkLogin(requestUser);
 };
 
-function getUserInformation(jsonObj) {
-  document.getElementById('user-nickname').textContent = jsonObj.user.nickname;
-  console.log(jsonObj.user.nickname);
+function checkLogin(jsonObj) {
+  let gnbAccount = document.getElementById('gnb-account');
+
+  if(jsonObj.user.login === true) {
+    gnbAccount.classList.add('is_login');
+    getUserInformation(jsonObj);
+  }
+  else {
+    gnbAccount.classList.remove('is_login');
+  }
 }
+
+function getUserInformation(jsonObj) {
+  document.getElementById('user-profile24').src = jsonObj.user.accounts[0].profile;
+  document.getElementById('user-profile40').src = jsonObj.user.accounts[0].profile;
+  document.getElementById('user-nickname').textContent = jsonObj.user.accounts[0].nickname;
+  document.getElementById('user-id').textContent = jsonObj.user.id;
+}
+
+function openAccountLayer() {
+  let dropdown = document.getElementById('gnb-dropdown-account');
+  let button = document.getElementById('gnb-button-account');
+  let aria = button.getAttribute('aria-expanded');
+
+  dropdown.classList.add('open');
+
+  if (aria === 'true') {
+    aria = 'false';
+  } else {
+    aria = 'true';
+  }
+  button.setAttribute('aria-expanded', aria);
+}
+
+window.onload = function() {
+  document.getElementById('gnb-button-account').onclick = function() {
+    openAccountLayer();
+  }
+};

@@ -1,7 +1,16 @@
 {
   "user": {
-    "id" : "11ksong2@gmail.com",
-    "nickname": "김송이",
-    "profile": "https://lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg"
+    "login": true,
+    "id": "11ksong2@gmail.com",
+    "accounts": [
+      {
+        "nickname": "김송이",
+        "profile": "https://lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg"
+      },
+      {
+        "nickname": "sssoing",
+        "profile": "https://yt3.ggpht.com/yti/ANoDKi5gPHlB_WCBTn0v3x_-2otQyX5KgSsCTcSZPw=s88-c-k-c0x00ffffff-no-rj-mo"
+      }
+    ]
   }
 }

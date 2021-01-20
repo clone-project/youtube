@@ -152,15 +152,29 @@
             </div>
           </div>
         </div>
-        <div class="account_area">
+        <!--[D] login 상태일 경우 .is-login 클래스 추가-->
+        <div id="gnb-account" class="account_area">
+          <span class="logout-item">
+            <!--[D] 클릭 시 .dropdown_account에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
+            <button type="button" id="gnb-button-setting" class="button_setting" aria-expanded="false">
+              <span class="blind">설정</span>
+              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_setting"><g><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g></svg>
+            </button>
+            <!--<a href="https://accounts.google.com/signin/v2/identifier?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Dko%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252F&hl=ko&ec=65620&flowName=GlifWebSignIn&flowEntry=ServiceLogin" class="link_login">
+              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_login"><g><path d="M12,0 C18.62375,0 24,5.37625 24,12 C24,18.62375 18.62375,24 12,24 C5.37625,24 0,18.62375 0,12 C0,5.37625 5.37625,0 12,0 Z M12,10.63625 C13.66,10.63625 15,9.29625 15,7.63625 C15,5.97625 13.66,4.63625 12,4.63625 C10.34,4.63625 9,5.97625 9,7.63625 C9,9.29625 10.34,10.63625 12,10.63625 Z M12,12.40875 C8.33375,12.40875 5.455,14.18125 5.455,15.8175 C6.84125,17.95 9.26875,19.3625 12,19.3625 C14.73125,19.3625 17.15875,17.95 18.545,15.8175 C18.545,14.18125 15.66625,12.40875 12,12.40875 Z"></path></g></svg>로그인
+            </a>-->
+            <button type="button" id="button-login" class="link_login">
+              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_login"><g><path d="M12,0 C18.62375,0 24,5.37625 24,12 C24,18.62375 18.62375,24 12,24 C5.37625,24 0,18.62375 0,12 C0,5.37625 5.37625,0 12,0 Z M12,10.63625 C13.66,10.63625 15,9.29625 15,7.63625 C15,5.97625 13.66,4.63625 12,4.63625 C10.34,4.63625 9,5.97625 9,7.63625 C9,9.29625 10.34,10.63625 12,10.63625 Z M12,12.40875 C8.33375,12.40875 5.455,14.18125 5.455,15.8175 C6.84125,17.95 9.26875,19.3625 12,19.3625 C14.73125,19.3625 17.15875,17.95 18.545,15.8175 C18.545,14.18125 15.66625,12.40875 12,12.40875 Z"></path></g></svg>로그인
+            </button>
+          </span>
           <!--[D] 클릭 시 .dropdown_account에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
-          <button type="button" class="button_account">
-            <img id="user-profile" src="//lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg" class="image_profile" width="24" height="24" alt="프로필">
+          <button type="button" id="gnb-button-account" class="button_account login-item" aria-expanded="false">
+            <img id="user-profile24" src="" class="image_profile" width="24" height="24" alt="프로필">
           </button>
-          <div class="dropdown_account">
-            <div class="profile_section">
+          <div id="gnb-dropdown-account" class="dropdown_account">
+            <div class="profile_section login-item">
               <div class="image_area">
-                <img src="//lh5.googleusercontent.com/-Sc4NI8aGIqI/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucluiwu7en-SKBu9fIhLNNvXsdMQ6Q/s88-c-k-c0x00ffffff-no-rj-mo/photo.jpg" class="image_profile" width="40" height="40" alt="프로필">
+                <img id="user-profile40" src="" class="image_profile" width="40" height="40" alt="프로필">
               </div>
               <div class="text_area">
                 <span id="user-nickname" class="nickname"></span>
@@ -168,7 +182,7 @@
                 <a href="https://myaccount.google.com/u/0/?utm_source=YouTubeWeb&tab=rk&utm_medium=act&tab=rk&hl=ko" class="link_account">Google 계정 관리</a>
               </div>
             </div>
-            <div class="dropdown_section">
+            <div class="dropdown_section login-item">
               <a href="#" class="link_item">
                 <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style"><g><path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"></path><path d="M0 0h24v24H0z" fill="none"></path></g></svg>
                 <span class="text">내 채널</span>
@@ -186,7 +200,7 @@
                 <span class="text">계정 전환</span>
                 <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="icon_arrow"><g mirror-in-rtl=""><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
               </button>
-              <button type="button" class="link_item">
+              <button type="button" id="button-logout" class="link_item">
                 <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style"><g mirror-in-rtl=""><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></g></svg>
                 <span class="text">로그아웃</span>
               </button>
