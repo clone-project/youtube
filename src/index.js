@@ -12,6 +12,15 @@ request.send();
 request.onload = function() {
   console.log(requestUser);
   checkLogin(requestUser);
+
+  document.getElementById('button-login').addEventListener('click', () => {
+    doLogin(requestUser);
+    checkLogin(requestUser);
+  });
+  document.getElementById('button-logout').addEventListener('click', () => {
+    doLogout(requestUser);
+    checkLogin(requestUser);
+  });
 };
 
 function checkLogin(jsonObj) {
@@ -24,6 +33,17 @@ function checkLogin(jsonObj) {
   else {
     gnbAccount.classList.remove('is_login');
   }
+}
+
+function doLogin(jsonObj) {
+  console.log("login");
+  jsonObj.user.login = true;
+}
+function doLogout(jsonObj) {
+  console.log("logout");
+  jsonObj.user.login = false;
+
+  console.log(jsonObj);
 }
 
 function getUserInformation(jsonObj) {
@@ -52,4 +72,4 @@ window.onload = function() {
   document.getElementById('gnb-button-account').onclick = function() {
     openAccountLayer();
   }
-};
+}
