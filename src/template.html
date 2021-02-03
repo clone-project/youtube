@@ -11,7 +11,7 @@
     <header class="gnb">
       <div class="left_section">
         <!--[D] 클릭 시 .layer_lnb에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
-        <button type="button" class="button_lnb" aria-expanded="false" aria-haspopup="menu">
+        <button type="button" id="gnb-button-lnb" class="button_lnb" aria-expanded="false" aria-haspopup="menu">
           <span class="blind">메뉴</span>
           <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_menu"><g><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></g></svg>
         </button>
@@ -79,11 +79,11 @@
         </div>
         <div class="upload_area">
           <!--[D] 클릭 시 .dropdown_make에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
-          <button type="button" class="button_make" aria-haspopup="menu" aria-expanded="false">
+          <button type="button" id="gnb-button-make" class="button_make" aria-haspopup="menu" aria-expanded="false">
             <span class="blind">만들기</span>
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_upload"><g><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"></path></g></svg>
           </button>
-          <div class="dropdown_make">
+          <div id="gnb-dropdown-make" class="dropdown_make">
             <a href="#" class="link_item">
               <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_upload"><g><path d="M19,4H5A2.15,2.15,0,0,0,3,6V18a2.15,2.15,0,0,0,2,2H19a2.15,2.15,0,0,0,2-2V6A2.15,2.15,0,0,0,19,4ZM5,18H19V6H5Z" fill="#6f6f6f" fill-rule="evenodd"></path><path d="M15,12,10,8v8Z" fill="#f80000" fill-rule="evenodd"></path></g></svg>
               <span class="text">동영상 업로드</span>
@@ -96,11 +96,11 @@
         </div>
         <div class="app_area">
           <!--[D] 클릭 시 .dropdown_app에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
-          <button type="button" class="button_app" aria-haspopup="menu" aria-expanded="false">
+          <button type="button" id="gnb-button-app" class="button_app" aria-haspopup="menu" aria-expanded="false">
             <span class="blind">YouTube 앱</span>
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_app"><g><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"></path></g></svg>
           </button>
-          <div class="dropdown_app">
+          <div id="gnb-dropdown-app" class="dropdown_app">
             <div class="dropdown_section">
               <a href="https://tv.youtube.com/welcome/?utm_campaign=home&utm_medium=ep&utm_source=youtube_web&ve=34273" class="link_item">
                 <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_tv"><g><path fill="#F00" d="M23.8,17.1c0,0.9-0.7,1.6-1.6,1.6H1.9c-0.9,0-1.6-0.7-1.6-1.6V4.8c0-0.9,0.7-1.6,1.6-1.6 h20.3c0.9,0,1.6,0.7,1.6,1.6V17.1z"></path><path fill="#F00" d="M17.3,20.8H6.7c-0.3,0-0.5-0.2-0.5-0.5v0c0-0.3,0.2-0.5,0.5-0.5h10.7 c0.3,0,0.5,0.2,0.5,0.5v0C17.9,20.6,17.6,20.8,17.3,20.8z"></path><polygon fill="#FFFFFF" points="9.6,14.4 15.7,10.9 9.6,7.5"></polygon></g></svg>
@@ -131,11 +131,11 @@
         </div>
         <div class="notification_area">
           <!--[D] 클릭 시 .dropdown_notification에 .open 클래스 추가 및 aria-expanded 값 true로 변경-->
-          <button type="button" class="button_notification">
+          <button type="button" id="gnb-button-notification" class="button_notification">
             <span class="blind">알림</span>
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="svg_style icon_notification"><g><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path></g></svg>
           </button>
-          <div class="dropdown_notification">
+          <div id="gnb-dropdown-notification" class="dropdown_notification">
             <div class="title_wrap">
               <h2 class="title">알림</h2>
               <a href="https://www.youtube.com/account_notifications" class="link_setting">
@@ -284,11 +284,11 @@
       </div>
       <!--[D] layer 노출될 때 ltr 트랜지션-->
       <!--[D] layer 여백 클릭 시 open 클래스 제거.-->
-      <div class="layer_lnb">
+      <div id="gnb-layer-lnb" class="layer_lnb">
         <div class="layer_content" role="menu">
           <div class="lnb_top_wrap">
             <!--[D] 클릭 시 .layer_lnb에 .open 클래스 제거 및 aria-expanded 값 false로 변경-->
-            <button type="button" class="button_lnb" aria-expanded="false" aria-haspopup="menu">
+            <button type="button" id="gnb-button-lnb2" class="button_lnb" aria-expanded="false" aria-haspopup="menu">
               <span class="blind">메뉴</span>
               <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="icon_menu"><g><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></g></svg>
             </button>

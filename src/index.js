@@ -9,18 +9,35 @@ request.open('GET', requestUser);
 request.responseType = 'json';
 request.send();
 
-request.onload = function() {
-  console.log(requestUser);
-  checkLogin(requestUser);
+checkLogin(requestUser);
 
-  document.getElementById('button-login').addEventListener('click', () => {
-    doLogin(requestUser);
-    checkLogin(requestUser);
-  });
-  document.getElementById('button-logout').addEventListener('click', () => {
-    doLogout(requestUser);
-    checkLogin(requestUser);
-  });
+document.getElementById('button-login').addEventListener('click', () => {
+  doLogin(requestUser);
+  checkLogin(requestUser);
+});
+document.getElementById('button-logout').addEventListener('click', () => {
+  doLogout(requestUser);
+  checkLogin(requestUser);
+});
+
+document.getElementById('gnb-button-lnb').onclick = function() {
+  openLayer('gnb-layer-lnb', 'gnb-button-lnb');
+};
+document.getElementById('gnb-button-lnb2').onclick = function() {
+  openLayer('gnb-layer-lnb', 'gnb-button-lnb2');
+};
+
+document.getElementById('gnb-button-make').onclick = function() {
+  openLayer('gnb-dropdown-make', 'gnb-button-make');
+};
+document.getElementById('gnb-button-app').onclick = function() {
+  openLayer('gnb-dropdown-app', 'gnb-button-app');
+};
+document.getElementById('gnb-button-notification').onclick = function() {
+  openLayer('gnb-dropdown-notification', 'gnb-button-notification');
+};
+document.getElementById('gnb-button-account').onclick = function() {
+  openLayer('gnb-dropdown-account', 'gnb-button-account');
 };
 
 function checkLogin(jsonObj) {
@@ -53,23 +70,22 @@ function getUserInformation(jsonObj) {
   document.getElementById('user-id').textContent = jsonObj.user.id;
 }
 
-function openAccountLayer() {
-  let dropdown = document.getElementById('gnb-dropdown-account');
-  let button = document.getElementById('gnb-button-account');
-  let aria = button.getAttribute('aria-expanded');
-
-  dropdown.classList.add('open');
+function toggleWaiAria(button, property) {
+  let aria = button.getAttribute(property);
 
   if (aria === 'true') {
     aria = 'false';
   } else {
     aria = 'true';
   }
-  button.setAttribute('aria-expanded', aria);
+  button.setAttribute(property, aria);
 }
 
-window.onload = function() {
-  document.getElementById('gnb-button-account').onclick = function() {
-    openAccountLayer();
-  }
+function openLayer(dropdownName, buttonName) {
+  let dropdown = document.getElementById(dropdownName);
+  let button = document.getElementById(buttonName);
+
+  dropdown.classList.toggle('open');
+
+  toggleWaiAria(button, 'aria-expanded');
 }
