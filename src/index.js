@@ -82,8 +82,8 @@ function toggleWaiAria(button, property) {
 }
 
 function openLayer(dropdownName, buttonName) {
-  let dropdown = document.getElementById(dropdownName);
-  let button = document.getElementById(buttonName);
+  const dropdown = document.getElementById(dropdownName);
+  const button = document.getElementById(buttonName);
 
   dropdown.classList.toggle('open');
 
