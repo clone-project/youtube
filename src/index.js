@@ -4,6 +4,11 @@ import requestUser from '../mock/user.json';
 //var requestRecommendVideo = '../mock/recommendVideo.json';
 //var requestPopularVideo = '../mock/popularVideo.json';
 
+import Notification from './js/gnb/Notification.js';
+
+const notificationArea = document.getElementById('gnb-notification-area');
+new Notification(notificationArea);
+
 var request = new XMLHttpRequest();
 request.open('GET', requestUser);
 request.responseType = 'json';
@@ -33,12 +38,23 @@ document.getElementById('gnb-button-make').onclick = function() {
 document.getElementById('gnb-button-app').onclick = function() {
   openLayer('gnb-dropdown-app', 'gnb-button-app');
 };
-document.getElementById('gnb-button-notification').onclick = function() {
-  openLayer('gnb-dropdown-notification', 'gnb-button-notification');
-};
+//document.getElementById('gnb-button-notification').onclick = function() {
+  //openLayer('gnb-dropdown-notification', 'gnb-button-notification');
+//};
 document.getElementById('gnb-button-account').onclick = function() {
   openLayer('gnb-dropdown-account', 'gnb-button-account');
 };
+
+document.addEventListener("click", function(event) {
+  const dropdown = document.getElementById('gnb-dropdown-make');
+  const button = document.getElementById('gnb-button-make');
+
+  if (event.target.closest('#gnb-dropdown-make'))
+    return;
+
+  dropdown.classList.remove('open');
+  toggleWaiAria(button, 'aria-expanded');
+});
 
 function checkLogin(jsonObj) {
   let gnbAccount = document.getElementById('gnb-account');
